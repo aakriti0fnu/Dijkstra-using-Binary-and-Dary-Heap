@@ -1,0 +1,4 @@
+runtime 0.0 seconds
+comparisons 547
+extractMinComparison 119
+decreaseKeyComparison 172

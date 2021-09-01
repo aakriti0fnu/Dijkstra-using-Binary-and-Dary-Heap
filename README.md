@@ -2,37 +2,54 @@
 
 #### How to run the project?
 
-- Navigate to the `src/` directory 
-
 - Compile all files
 
-    `javac *.java`
+    `javac -d bin src/*.java `
 
 - Run experiments on `All Pairs Shortest Path Algorithm`
-
-    Note: 
-    - Command syntax:
-
-        ```
-        java AllPairShortestPath \
-                [alg type] \
-                [number of childeren in d heap]  \
-                < [input file] \
-                > [optional: output file] \
-                2> [optional: Statistics File]
-        ```
-        - It outputs to stdout separated by lines with -1 
-        - Statistics on the run are sent to stderr
+    
+    Command syntax:
+    ```
+    java AllPairShortestPath \
+            [alg type] \
+            [number of childeren in d heap]  \
+            < [input file] \
+            > [optional: output file] \
+            2> [optional: Statistics File]
+    ```
+    where:
+        - outputs to stdout separated by lines with -1 
+        - statistics on the run are sent to stderr
         - both files can be optionally redirected
         - input must be fed into stdin
-    - use `dd` for dijkstra with D array heaps
 
-      use `db` for dijkstra with binary heap
+    Example:
+    
+    - use `db` for dijkstra with binary heap
+     ```
+     # to get output on console
+     java -cp bin AllPairShortestPath db < data/input/test.gph
+     
+     # to capture output to files.
+     java -cp bin AllPairShortestPath \
+                  db \
+                  < data/input/test.gph \
+                  > data/output/test.out \
+                  2> data/stats/test.txt
 
-    ex:
+     ```
+    - use `dd` for dijkstra with D-array heaps      
     ```
-    java AllPairShortestPath db < test.gph 
-    java AllPairShortestPath dd 3 <test.gph
+    # to get output on console
+    java -cp bin AllPairShortestPath dd 3 < data/input/test.gph
+
+    # to capture output to files.
+    java -cp bin AllPairShortestPath \
+            dd \
+            3 \
+            < data/input/test.gph \
+            > data/output/test.out \
+            2> data/stats/test.txt
     ```
 ----
 
